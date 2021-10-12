@@ -3,6 +3,24 @@ const img = document.querySelector('img');
 const preds = document.querySelector('#predicciones');
 const button = document.querySelector('#btn-pred');
 
+const init = () => {
+
+
+  if(!localStorage.getItem('labels')) {
+    
+    M.toast({html: '<span>Cargando Labels...</span><button class="btn-flat toast-action">X</button>'});
+    console.log('Labels está cargada localmente en localstorage')
+    loadLabels();
+  }
+  tf.loadGraphModel('indexeddb://mobilenet')
+    .then(resp => console.log('Mobilenet está cargada localmente en indexdb'))
+    .catch(err => {
+      console.log(err);
+      M.toast({html: '<span>Cargando Mobilenet...</span><button class="btn-flat toast-action">X</button>'});
+      loadMobilenet();
+    });  
+};
+
 const loadLabels = () => {
 
   if (!localStorage.getItem('labels')) {
@@ -68,19 +86,15 @@ const format = (value) => {
   return Math.round(value)
 }
 
-// MAIN
-M.toast({html: '<span>Cargando Mobilenet...</span><button class="btn-flat toast-action">X</button>'});
-loadMobilenet();
-M.toast({html: '<span>Cargando labels...</span><button class="btn-flat toast-action">X</button>'});
-loadLabels();
+// Main
+init();
 
-
+// update img
 file.addEventListener('change', () => {
-
     img.src = URL.createObjectURL(file.files[0]);
-    
 });
 
+// predict
 button.addEventListener('click', () => {
   mobileNet();
-})
+});
