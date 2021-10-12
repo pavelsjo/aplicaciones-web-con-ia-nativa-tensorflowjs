@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="" class="brand-logo">Clasification demo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+                <li class="active"><a href="">Mobilenet</a></li>
+                <li><a href="">Labels</a></li>
+                <li><a href="">Github</a></li>
+
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col s8">
+                <div class="card-panel teal ligthen-2">
+                    <h5>Imagen</h5>
+                    <form action="#">
+                        <div class="file-field input-field">
+                          <div class="btn">
+                            <span>File</span>
+                            <input type="file">
+                          </div>
+                          <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                          </div>
+                        </div>
+                      </form>
+                      <img id="img" src="#" class="responsive-img">
+                </div>
+                    <a class="btn-floating pulse" id="btn-pred"><i class="material-icons">photo_filter</i></a>
+            </div>
+            <div class="col s4">
+
+                <div class="card-panel teal ligthen-4">
+                    <h5>Top 10</h5>
+                    <div class="collection" id="predicciones">
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>        
+    </div>    
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Import Google Icon Font -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Tensorflowjs -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <!-- Source-->
+    <script src="app.js"></script>
+</body>
+</html>
