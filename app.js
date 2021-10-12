@@ -9,11 +9,12 @@ const setup = () => {
 
   // label check
   if(!localStorage.getItem('labels')) {
-    
+
     M.toast({html: '<span>Cargando Labels...</span><button class="btn-flat toast-action">X</button>'});
     console.log('Labels está cargada localmente en localstorage')
     loadLabels();
-  }
+
+  };
 
   // model check
   tf.loadGraphModel('indexeddb://mobilenet')
@@ -75,6 +76,8 @@ const mobileNet = async () => {
           //insert html
           htmlPredictionParse(topValues[i], topindices[i]);
         }
+        // stop load
+        preloader.classList.toggle('active');
 
       });
   });
@@ -96,21 +99,26 @@ setup();
 
 // img input handle
 file.addEventListener('change', () => {
-  
   // ad img
   img.src = URL.createObjectURL(file.files[0]);
+  // clean html for new img
 });
 
-// predict
+// prediction button
 button.addEventListener('click', () => {
-  // clean html
+  
+  // clean html for new predictions
   preds.innerHTML = '';
+
+  // start load model
   preloader.classList.toggle('active');
+  
+  // predictions
   mobileNet();
-  preloader.classList.toggle('active');
+
 });
 
 buttonClean.addEventListener('click', () => {
-   // clean html
+   // manual clean option
    preds.innerHTML = '';
 })
