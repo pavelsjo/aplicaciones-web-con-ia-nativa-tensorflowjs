@@ -2,6 +2,8 @@ const file = document.querySelector('input[type="file"]');
 const img = document.querySelector('img');
 const preds = document.querySelector('#predicciones');
 const button = document.querySelector('#btn-pred');
+const buttonClean = document.querySelector('#btn-clean');
+const preloader = document.querySelector('.preloader-wrapper');
 
 const setup = () => {
 
@@ -69,7 +71,8 @@ const mobileNet = async () => {
         const topindices = indices.dataSync();
 
         for(let i=0; i < top; i++) {
-          
+        
+          //insert html
           htmlPredictionParse(topValues[i], topindices[i]);
         }
 
@@ -79,7 +82,7 @@ const mobileNet = async () => {
 
 const htmlPredictionParse = (value, indice) => {
   const LABELS = getLabels();
-  const template = `<a href="#!" class="collection-item">${LABELS[indice]}<span class="badge">${format(value)}%</span></a>`;
+  const template = `<a href="#!" class="collection-item orange lighten-5 black-text">${LABELS[indice]}<span class="badge">${format(value)}%</span></a>`;
   preds.innerHTML += template;
 
 };
@@ -93,10 +96,21 @@ setup();
 
 // img input handle
 file.addEventListener('change', () => {
-    img.src = URL.createObjectURL(file.files[0]);
+  
+  // ad img
+  img.src = URL.createObjectURL(file.files[0]);
 });
 
 // predict
 button.addEventListener('click', () => {
+  // clean html
+  preds.innerHTML = '';
+  preloader.classList.toggle('active');
   mobileNet();
+  preloader.classList.toggle('active');
 });
+
+buttonClean.addEventListener('click', () => {
+   // clean html
+   preds.innerHTML = '';
+})

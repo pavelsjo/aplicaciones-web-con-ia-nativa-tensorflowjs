@@ -7,7 +7,7 @@
 </head>
 <body>
     <nav>
-        <div class="nav-wrapper teal ligthen-2">
+        <div class="nav-wrapper 0 orange darken-3">
             <a href="" class="brand-logo">Clasification demo</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
 
@@ -21,13 +21,11 @@
     <div class="container">
         <div class="row">
             <div class="col s8">
-                <div class="card-panel teal ligthen-2">
-                    <h5>Imagen</h5>
-        
-                    <img id="img" src="example.png" class="responsive-img">
+                <div class="card-panel orange darken-2">        
+                    <img id="img" src="example.png" class="responsive-img ">
                     <form action="#">
                         <div class="file-field input-field">
-                          <div class="btn">
+                          <div class="btn blue-grey darken-4">
                             <span>File</span>
                             <input type="file">
                           </div>
@@ -37,17 +35,29 @@
                         </div>
                       </form>
                 </div>
-                    <a class="btn-floating pulse" id="btn-pred"><i class="material-icons">photo_filter</i></a>
+                <div class="container  left-align">
+                    <a class="btn-floating btn-large pulse blue-grey darken-4 " id="btn-pred"><i class="material-icons">photo_filter</i></a>
+                    <a class="btn-floating blue-grey darken-4" id="btn-clean"><i class="material-icons">delete</i></a>
+                </div>
+
             </div>
             <div class="col s4">
 
-                <div class="card-panel teal ligthen-4">
+                <div class="card-panel orange darken-2 center-align">
                     <h5>Top 10</h5>
-                    <div class="collection" id="predicciones">
-                        
-                    </div>
-                </div>
-                
+                    <div class="preloader-wrapper">
+                        <div class="spinner-layer spinner-red-only">
+                          <div class="circle-clipper left">
+                            <div class="circle"></div>
+                          </div><div class="gap-patch">
+                            <div class="circle"></div>
+                          </div><div class="circle-clipper right">
+                            <div class="circle"></div>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="collection" id="predicciones"></div>                    
+                </div>                
             </div>
         </div>        
     </div>    
