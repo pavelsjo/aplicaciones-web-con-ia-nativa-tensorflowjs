@@ -3,7 +3,7 @@ const img = document.querySelector('img');
 const preds = document.querySelector('#predicciones');
 const button = document.querySelector('#btn-pred');
 const buttonClean = document.querySelector('#btn-clean');
-const preloader = document.querySelector('.preloader-wrapper');
+const preloader = document.querySelector('.progress');
 
 const setup = () => {
 
@@ -65,7 +65,7 @@ const mobileNet = async () => {
         const readyfied = tf.image.resizeBilinear(myTensor, [224, 224], true).div(255).reshape([1, 224, 224, 3]);
         
         // Predictions
-        const top = 10;
+        const top = 3;
         const result = model.predict(readyfied);
         const { values, indices } = tf.topk(result, top);
         const topValues = values.dataSync();
@@ -77,31 +77,29 @@ const mobileNet = async () => {
           htmlPredictionParse(topValues[i], topindices[i]);
         }
         // stop load
-        preloader.classList.toggle('active');
+        preloader.style.display ='none';
 
       });
   });
 };
 
-const htmlPredictionParse = (value, indice) => {
+const htmlPredictionParse = (value, indice)  => {
   const LABELS = getLabels();
-  const template = `<a href="#!" class="collection-item orange lighten-5 black-text">${LABELS[indice]}<span class="badge">${format(value)}%</span></a>`;
+  const template = `<div class="chip">${LABELS[indice]}<i class="close material-icons">close</i></div>`;
   preds.innerHTML += template;
 
 };
-
-const format = (value) => {
-  return Math.round(value)
-}
 
 // Main
 setup();
 
 // img input handle
 file.addEventListener('change', () => {
-  // ad img
+  // add img
   img.src = URL.createObjectURL(file.files[0]);
+
   // clean html for new img
+  preds.innerHTML = '';
 });
 
 // prediction button
@@ -111,7 +109,7 @@ button.addEventListener('click', () => {
   preds.innerHTML = '';
 
   // start load model
-  preloader.classList.toggle('active');
+  preloader.style.display = 'block';
   
   // predictions
   mobileNet();

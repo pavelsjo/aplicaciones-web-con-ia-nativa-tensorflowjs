@@ -7,71 +7,54 @@
 </head>
 <body>
     <nav>
-        <div class="nav-wrapper 0 orange darken-3">
+        <div class="nav-wrapper orange darken-3">
             <a href="" class="brand-logo">Image Classification Demo</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-
                 <li class="active"><a href="">Mobilenet</a></li>
                 <li><a href="https://github.com/pavelsjo/image-classification-tensorflowjs">Github</a></li>
-
             </ul>
         </div>
     </nav>
     <div class="container center-align">
-        <div class="row">
-              <div class="col s8">
-                <div class="card">
-                  <div class="card-image">
-                    <img id="img" src="example.png" class="responsive-img ">
-                    <span class="card-title">Imagen a clasificar</span>
-                    <a class="btn-floating halfway-fab btn-large waves-effect pulse blue-grey darken-4"  id="btn-pred"><i class="material-icons">photo_filter</i></a>
-                  </div>
-                  <div class="card-content left-align">
-                    <p>Pulsando el boton, podrás obtener los resultados de la predicción.</p>
-                  </div>
-                </div>
-                <form action="#">
-                  <div class="file-field input-field">
-                    <div class="btn blue-grey darken-4">
-                      <span>File</span>
-                      <input type="file">
-                    </div>
-                    <div class="file-path-wrapper">
-                      <input class="file-path validate" type="text">
-                    </div>
-                  </div>
-                </form>
-              </div>
-            <div class="col s4">
-
-                <div class="card-panel orange darken-2 center-align">
-                    <h5>Top 10</h5>
-                    <div class="preloader-wrapper">
-                        <div class="spinner-layer spinner-red-only">
-                          <div class="circle-clipper left">
-                            <div class="circle"></div>
-                          </div><div class="gap-patch">
-                            <div class="circle"></div>
-                          </div><div class="circle-clipper right">
-                            <div class="circle"></div>
-                          </div>
-                        </div>
-                      </div>
-                    <div class="collection" id="predicciones"></div>
-                    <a class="btn-floating btn-large blue-grey darken-4" id="btn-clean"><i class="material-icons">delete</i></a>              
-                </div>                
+      <div class="row">
+        <div class="col s12">
+          <div class="card">
+            <div class="card-image">
+              <img id="img" src="example.png" class="responsive-img">
+              <a class="btn-floating halfway-fab btn-large waves-effect pulse blue-grey darken-4"  id="btn-pred"><i class="material-icons">photo_filter</i></a>
             </div>
-        </div>        
-    </div>    
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!-- Import Google Icon Font -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Tensorflowjs -->
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
-    <!-- Source-->
-    <script src="app.js"></script>
+            <div class="card-content"  id="predicciones">
+              <!-- Dynamic prediction content -->
+            </div>
+            <div class="progress orange lighten-5" style="display:none">
+              <div class="indeterminate orange" ></div>
+            </div>
+          </div>
+        </div>
+        <form action="#">
+          <div class="file-field input-field">
+            <div class="btn blue-grey darken-4">
+              <span>File</span>
+              <input type="file">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text">
+            </div>
+          </div>
+        </form>
+      </div>
+      <a class="btn-floating btn-large blue-grey darken-4" id="btn-clean"><i class="material-icons">delete</i></a>
+    </div>
+  </div> 
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- Import Google Icon Font -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Tensorflowjs -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+  <!-- Source-->
+  <script src="app.js"></script>
 </body>
 </html>
