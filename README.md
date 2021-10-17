@@ -1,4 +1,4 @@
-# Aplicaciones web con Inteligencia Artificial Nativa usando Tensorflow js - [Demo](https://pavelsjo.github.io/image-classification-tensorflowjs/)
+# Aplicaciones web con Inteligencia Artificial Nativa usando Tensorflow js - [Demo](https://pavelsjo.github.io/aplicaciones-web-con-ia-nativa-tensorflowjs/
 
 Este repositorio contiene el código para la demo realizada durante el [VII Workshop de Sistemas](https://www.youtube.com/channel/UCru5ORwpLUvr0YvuHn23vEA) realizado por la Universidad Tecnológica Nancional - UTN.
 
